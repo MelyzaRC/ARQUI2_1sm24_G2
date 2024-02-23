@@ -80,33 +80,33 @@ El propósito del sistema es gestionar un ambiente inteligente en una habitació
 ## DIAGRAMA DE FLUJO
 
 
+## LIBRERIAS UTILIZADAS EN EL PROYECTO
+1. Wire
+2. LiquidCrystal_I2C
+3. Keypad
+4. DHT
+5. EEPROM
 
-TABLA No.1: Nombre y Tipo de Variables
+## ANEXOS
+TABLA NO.1: Nombre y Tipo de Variables
 | NOMBRE VARIABLE | TIPO | DESCRIPCIÓN | PIN ARDUINO |
 | ------ | ------ | ------ | ------ |
-| pinButtonFoto | int | Pin vinculado al sensor de la fotoresistencia, en la cual se envia informacion al arduino. | 6 |
-| buttonValFoto | int | Valor obtenido del pin de la fotoresistencia. |  |
-| pinButtonCO2 | int | Pin vinculado al sensor del CO2, dicho sensor envia la informacion al arduino. | 8 |
-| buttonValCO2 | int | Valor obtenido del pin del sensor CO2. |  |
-| pinButtonTem | int | Pin vinculado al sensor de temperatura, este envia la informacion al arduino. | 9 |
-| buttonValTem | int | Valor obtenido del pin de temperatura |  |
-| pinButtonHum | int | Pin vinculado al sensor de humedad, este enviara la informacion al arduino. | 10 |
-| buttonValHum | int | Valor obtenido del pin de humedad. |  |
-| pinButtonSave | int | Pin vinculado al boton que guardara la informacion de los sensores en ese instante. | 11 |
-| buttonValSave | int | Valor obtenido del pin Guardar. |  |
-| pinButtonHis | int | Pin vinculado al boton de historial, mostrara la informacion guardada. | 12 |
-| buttonValHis | int | Valor del pin Historial. |  |
-| pintButtonAll | int | Pin vinculado al boton para mostrar todos los datos. | 13 |
-| buttonValAll | int | Valor obtenido del pin ALL. |  |
-| pinButtonUltrasonico | int | Pin vinculado al boton de fotoresistencia para envia de informacion al arduino. | 22 |
-| buttonValUltrasonico | int | Valor obtenido del pin de la fotoresistencia. |  |
-| dl | int | Valor del delay siendo este de 400. |  |
-| sensorIluValue | int | Valor de iluminacion. |  |
-| sensorCO2Value | int | Valor de CO2. |  |
-| h | int | Variable para humedad. |  |
-| t | int | Variable para temperatura. |  |
-| duracion | long | Variable para guardar informacion de duracion. |  |
-| distancia | long | Variable para guardar informacion de distancia. |  |
-| buffer1[16] | char | Cadena para mostrar en la pantalla. |  |
-| mostrarLCD | int | Opciones a mostrar en la pantalla siendo estos: 0-Todos, 1-CO2, 2-Temperatura y 3-Humedad. |  |
+| eepromAddress | int | Direccion de memoria EEPROM para almacenar los datos de los sensores. |  |
+| pinButtonCO2 | int | Pin vinculado al sensor del CO2, dicho sensor envia la informacion al arduino. | 10 |
+| pinButtonFoto | int | Pin vinculado al sensor de fotoresistencia, dicho sensor envia la informacion al arduino. | 11 |
+| pinHumedad | int | Pin vinculado al sensor de humedad, dicho sensor envia la informacion al arduino. | 12 |
+| ROWS | byte | Variable utilizada para moverse en la matriz de botones. |  |
+| COLS | byte | Variable utilizada para moverse en la matriz de botones. |  |
+
+
+TABLA NO.2: Nombre y tipo de metodos
+| NOMBRE | TIPO | DESCRIPCION |
+| ------ | ------ | ------ |
+| readSensors | void | Este metodo lee la informacion enviada de los sensores y los guarda en las variables declaradas en la Tabla No.1  |
+| readUltrasonicSensor | int | Metodo para calcular la distancia de la habitacion. |
+| processKeypad | void | Metodo utilizado para procesar la informacion del teclado, este metodo recibe como parametro un char. Dicho parametro permite mostrar los datos guardados en las variables descritas en la Tabla No.1 |
+| printAllSensor | void | Muestra toda la informacion guardada de los sensores. |
+| nivelLuz | String | Este metodo recibe un parametro de tipo int, el cual permite determinar si la luz es Alta, media o baja. |
+| saveDataToEEPROM | void | Ingresa informacion en la memoria EEPROM.  |
+| displaySavedData | void | Lee los valores almacenados en la memoria EEPROM. |
 
