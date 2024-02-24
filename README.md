@@ -67,13 +67,13 @@ El propósito del sistema es gestionar un ambiente inteligente en una habitació
 
 ## FLUJO DEL SISTEMA
 
-- Los sensores deescritos realizarán lecturas del ambiente, para trasladar estos datos al microcontrolador Arduino.
+- Los sensores descritos realizarán lecturas del ambiente, para trasladar estos datos al microcontrolador Arduino.
 
 - Luego de contar con los datos en el sistema, dicha información, será presentada implementando una pantalla LCD. Con el objetivo de mostrar información al usuario, se necesita implementar, botones que permitan interactuar con el microcontrolador.
 
 - Los botones tendrán la capacidad de mostrar información en tiempo real.
 
-- Para mostrrar la información histórica es necesario el uso de memoria EEPROM ya que se necesita guardar la información resultante de la diversidad de sensores, implementando un botón exclusivo, que permita generar el guardado de información.
+- Para mostrar la información histórica es necesario el uso de memoria EEPROM ya que se necesita guardar la información resultante de la diversidad de sensores, implementando un botón exclusivo, que permita generar el guardado de información.
 
 ![Diagrama](./img/diagrama_IoT.PNG)
 FIGURA NO.1
