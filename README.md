@@ -76,9 +76,11 @@ El propósito del sistema es gestionar un ambiente inteligente en una habitació
 - Para mostrrar la información histórica es necesario el uso de memoria EEPROM ya que se necesita guardar la información resultante de la diversidad de sensores, implementando un botón exclusivo, que permita generar el guardado de información.
 
 ![Diagrama](./img/diagrama_IoT.PNG)
+FIGURA NO.1
 
 ## MAQUETA
 ![Maqueta](./img/maqueta.jpg)
+FIGURA NO.2
 
 En la siguiente imagen podemos encontrar los sensores utilizados en este proyecto siendo estos:
  - Sensor de temperatura DHT
@@ -89,7 +91,8 @@ En la siguiente imagen podemos encontrar los sensores utilizados en este proyect
 Tambien podemos apreciar un Arduino Uno, una pantalla LCD y una matriz de celda.
 
 ## DIAGRAMA DE FLUJO
-
+![Flujo](./img/flujo.png)
+FIGURA NO.3: Comportamiento del codigo implementado en Arduino.
 
 ## LIBRERIAS UTILIZADAS EN EL PROYECTO
 1. Wire
@@ -98,7 +101,7 @@ Tambien podemos apreciar un Arduino Uno, una pantalla LCD y una matriz de celda.
 4. DHT
 5. EEPROM
 
-## ANEXOS
+## VARIABLES Y METODOS UTILIZADOS
 TABLA NO.1: Nombre y Tipo de Variables
 | NOMBRE VARIABLE | TIPO | DESCRIPCIÓN | PIN ARDUINO |
 | ------ | ------ | ------ | ------ |
