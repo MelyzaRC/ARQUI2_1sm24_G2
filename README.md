@@ -77,6 +77,17 @@ El propósito del sistema es gestionar un ambiente inteligente en una habitació
 
 ![Diagrama](./img/diagrama_IoT.PNG)
 
+## MAQUETA
+![Maqueta](./img/maqueta.jpg)
+
+En la siguiente imagen podemos encontrar los sensores utilizados en este proyecto siendo estos:
+ - Sensor de temperatura DHT
+ - Sensor de movimiento Ultrasonico HC-SR04
+ - Fotocelda
+ - Sensor de CO2 MQ135
+
+Tambien podemos apreciar un Arduino Uno, una pantalla LCD y una matriz de celda.
+
 ## DIAGRAMA DE FLUJO
 
 
@@ -109,4 +120,3 @@ TABLA NO.2: Nombre y tipo de metodos
 | nivelLuz | String | Este metodo recibe un parametro de tipo int, el cual permite determinar si la luz es Alta, media o baja. |
 | saveDataToEEPROM | void | Ingresa informacion en la memoria EEPROM.  |
 | displaySavedData | void | Lee los valores almacenados en la memoria EEPROM. |
-
