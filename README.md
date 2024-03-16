@@ -10,7 +10,8 @@
 >
 >Laboratorio de Arquitectura de Computadores y Ensambladores 2
 
-### Grupo No. 2
+### Grupo No. 2 
+# Fase 2
 
 Integrantes:
 
@@ -31,17 +32,19 @@ Una estación meteorológica de IoT es un sistema avazado de monitoreo que integ
     3. Humedad.
     4. Concentración de Co2 en el aire.
 
-Este sistema de estación meteorológica IoT recopila los datos de estos sensores y los envía a una plataforma centralizada implementando un sistema de cola de mensajes (**MQTT**). Los datos se almacenan en una **base de datos** y pueden visualizarse, implementando una **aplicación web**. Esto permite que los usuarios monitoreen y accionen sobre los diversos componentes que administra la estación.
+Este sistema de estación meteorológica IoT recopila los datos de estos sensores y los envía a una plataforma centralizada implementando un sistema de cola de mensajes (**MQTT**). Los datos pueden visualizarse, implementando una **aplicación web**. Esto permite que los usuarios monitoreen y accionen sobre los diversos componentes que administra la estación.
 
 ## FUNCIONES
 
     - MEDICIÓN DE TEMPERATURA        
     - CANTIDAD DE LUZ AMBIENTAL
-    - MEDICIÓN DE CALIDA DE AIRE
+    - MEDICIÓN DE CALIDAD DE AIRE
     - MEDICIÓN DE PROXIMIDAD
+    - ACCIONAMIENTO REMOTO DE VENTILADOR
+    - DASHBOARD DINAMICO CON INFORMACIÓN EN TIEMPO REAL
 
 ## OBJETIVO DEL DISPOSITIVO
-El propósito del sistema es gestionar un ambiente inteligente en una habitación, con la capacidad de asegurar condiciones saludables para el ocupante y controlar los gastos energéticos analizando la información obtenida.
+El propósito del sistema es gestionar un ambiente inteligente en una habitación, con la capacidad de asegurar condiciones saludables para el ocupante y controlar los gastos energéticos analizando la información obtenida. Así mismo, monitorear de manera remota la información actual del ambiente y poder accionar un ventilador en el momento en que se desee. 
 
 ## DESCRIPCIÓN DE CAPAS
     - Hardware
@@ -58,24 +61,52 @@ El propósito del sistema es gestionar un ambiente inteligente en una habitació
                 - Modulo TCS3200
             - Sensor de Co2
                 - MQ135
-            - Pantalla LCD
+            - Comunicación
+                - Módulo WiFi ESP32
+            
     - Software
         - Arduino IDE
-        - Python (Opcional)
-    - Plataforma
-        - Pantalla LCD
+        - NodeJS
+
+        
+    - Cloud Platform 
+        - Google Coud Platform
+
+> <img src="https://www.tuxcloud.com/wp-content/uploads/google-cloud-1024x615.jpg" alt="drawing" width="200">
+>
+> Google Cloud Platform (GCP) es una plataforma de servicios en la nube ofrecida por Google que proporciona una amplia gama de herramientas y servicios para ayudar a las organizaciones a construir, implementar y escalar aplicaciones y servicios en la infraestructura de Google. GCP ofrece servicios de cómputo, almacenamiento, bases de datos, redes, inteligencia artificial, aprendizaje automático y más, todo ello bajo un modelo de pago por uso flexible y escalable. Con una red global de centros de datos, seguridad de primer nivel y un enfoque en la innovación continua, Google Cloud Platform es una opción popular para empresas de todos los tamaños que buscan aprovechar la potencia y la confiabilidad de la infraestructura en la nube de Google para impulsar su transformación digital y alcanzar sus objetivos comerciales.
 
 ## FLUJO DEL SISTEMA
 
-- Los sensores descritos realizarán lecturas del ambiente, para trasladar estos datos al microcontrolador Arduino.
+- ### Recolección de datos:
+   Los sensores descritos realizarán lecturas del ambiente, para trasladar estos datos al microcontrolador Arduino.
 
-- Luego de contar con los datos en el sistema, dicha información, será presentada implementando una pantalla LCD. Con el objetivo de mostrar información al usuario, se necesita implementar, botones que permitan interactuar con el microcontrolador.
+- ### Conexión a la Red WiFi:
 
-- Los botones tendrán la capacidad de mostrar información en tiempo real.
+Programar el Arduino para que se conecte a la red WiFi utilizando el módulo correspondiente y proporcionando las credenciales de la red (SSID y contraseña).
+Conexión al Broker MQTT:
 
-- Para mostrar la información histórica es necesario el uso de memoria EEPROM ya que se necesita guardar la información resultante de la diversidad de sensores, implementando un botón exclusivo, que permita generar el guardado de información.
+Configurar los parámetros de conexión al servidor MQTT (también conocido como broker). Esto incluye la dirección IP del broker, el puerto y cualquier credencial necesaria para la autenticación.
 
-![Diagrama](./img/diagrama_IoT.PNG)
+- ### Publicación de Datos:
+
+Para el manejo de los datos recolectados por los sensores, se utilizaron las siguientes variables: 
+
+|Nombre de la variable|Topic |  Mensaje|
+|--|--|--|
+|mqtt_topic|allSensors|Todos los sensores|
+|mqtt_topic_temp|temperatura|Lectura del sensor de temperatura|
+|mqtt_topic_co2|co2|Lectura del sensor de calidad del aire|
+|mqtt_topic_humidity|humedad|Lectura del sensor de humedad|
+|mqtt_topic_distance|distancia|Lectura del sensor ultrasónico|
+
+
+- ### Recepción de Datos:
+
+En el extremo receptor (aplicacion web para el caso de la lectura de sensores), suscribirse al mismo topic MQTT al que el Arduino está publicando los datos para mostrarlos
+
+<img src="./img/imgFase2.png" alt="drawing" width="1000">
+
 FIGURA NO.1
 
 ## MAQUETA
@@ -87,19 +118,19 @@ En la siguiente imagen podemos encontrar los sensores utilizados en este proyect
  - Sensor de movimiento Ultrasonico HC-SR04
  - Fotocelda
  - Sensor de CO2 MQ135
+ - Módulo WiFi ESP32
+ - Ventilador de 5V
 
-Tambien podemos apreciar un Arduino Uno, una pantalla LCD y una matriz de celda.
+Tambien podemos apreciar un Arduino Uno como microcontrolador.
 
 ## DIAGRAMA DE FLUJO
-![Flujo](./img/flujo.png)
-FIGURA NO.3: Comportamiento del codigo implementado en Arduino.
+
 
 ## LIBRERIAS UTILIZADAS EN EL PROYECTO
 1. Wire
-2. LiquidCrystal_I2C
-3. Keypad
-4. DHT
-5. EEPROM
+2. DHT
+3. EEPROM
+4. SoftwareSerial.h
 
 ## VARIABLES Y METODOS UTILIZADOS
 TABLA NO.1: Nombre y Tipo de Variables
