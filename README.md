@@ -63,6 +63,8 @@ El propósito del sistema es gestionar un ambiente inteligente en una habitació
                 - MQ135
             - Comunicación
                 - Módulo WiFi ESP32
+            - Actuadores
+                - Ventilador 5V
             
     - Software
         - Arduino IDE
@@ -72,9 +74,9 @@ El propósito del sistema es gestionar un ambiente inteligente en una habitació
     - Cloud Platform 
         - Google Coud Platform
 
-> <img src="https://www.tuxcloud.com/wp-content/uploads/google-cloud-1024x615.jpg" alt="drawing" width="200">
+> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1200px-Amazon_Web_Services_Logo.svg.png" alt="drawing" width="200">
 >
-> Google Cloud Platform (GCP) es una plataforma de servicios en la nube ofrecida por Google que proporciona una amplia gama de herramientas y servicios para ayudar a las organizaciones a construir, implementar y escalar aplicaciones y servicios en la infraestructura de Google. GCP ofrece servicios de cómputo, almacenamiento, bases de datos, redes, inteligencia artificial, aprendizaje automático y más, todo ello bajo un modelo de pago por uso flexible y escalable. Con una red global de centros de datos, seguridad de primer nivel y un enfoque en la innovación continua, Google Cloud Platform es una opción popular para empresas de todos los tamaños que buscan aprovechar la potencia y la confiabilidad de la infraestructura en la nube de Google para impulsar su transformación digital y alcanzar sus objetivos comerciales.
+> ***AWS Amazon Web Services*** Es una plataforma de servicios en la nube ofrecida por Amazon.com. AWS ofrece una amplia gama de servicios de computación en la nube, incluyendo almacenamiento, bases de datos, análisis, inteligencia artificial, aprendizaje automático, Internet de las cosas (IoT), seguridad y mucho más. Estos servicios son ofrecidos en forma de servicios web, permitiendo a empresas y desarrolladores acceder y utilizar infraestructura informática sin necesidad de construir o mantener sus propios centros de datos físicos. AWS es una de las principales plataformas de servicios en la nube y es utilizada por empresas de todo el mundo para ejecutar sus aplicaciones y servicios en línea.
 
 ## FLUJO DEL SISTEMA
 
@@ -99,7 +101,11 @@ Para el manejo de los datos recolectados por los sensores, se utilizaron las sig
 |mqtt_topic_co2|co2|Lectura del sensor de calidad del aire|
 |mqtt_topic_humidity|humedad|Lectura del sensor de humedad|
 |mqtt_topic_distance|distancia|Lectura del sensor ultrasónico|
-
+|mqtt_topic_lumus|luminosidad|Lectura del sensor ultrasónico|
+|mqtt_topic_guardar|guardar|Guardado en memoria|
+|mqtt_topic_leer|leer|Lectura de memoria|
+|mqtt_topic_ventiladorOn|ventiladorON|Encendido del ventilador|
+|mqtt_topic_ventiladorOff|ventiladorOFF|Apagado del ventilador|
 
 - ### Recepción de Datos:
 
@@ -111,6 +117,7 @@ FIGURA NO.1
 
 ## MAQUETA
 ![Maqueta](./img/maqueta.jpg)
+
 FIGURA NO.2
 
 En la siguiente imagen podemos encontrar los sensores utilizados en este proyecto siendo estos:
@@ -130,18 +137,21 @@ Tambien podemos apreciar un Arduino Uno como microcontrolador.
 1. Wire
 2. DHT
 3. EEPROM
-4. SoftwareSerial.h
+4. Wifi.h
+5. PubSubClient.h
 
 ## VARIABLES Y METODOS UTILIZADOS
 TABLA NO.1: Nombre y Tipo de Variables
 | NOMBRE VARIABLE | TIPO | DESCRIPCIÓN | PIN ARDUINO |
 | ------ | ------ | ------ | ------ |
-| eepromAddress | int | Direccion de memoria EEPROM para almacenar los datos de los sensores. |  |
-| pinButtonCO2 | int | Pin vinculado al sensor del CO2, dicho sensor envia la informacion al arduino. | 10 |
-| pinButtonFoto | int | Pin vinculado al sensor de fotoresistencia, dicho sensor envia la informacion al arduino. | 11 |
-| pinHumedad | int | Pin vinculado al sensor de humedad, dicho sensor envia la informacion al arduino. | 12 |
-| ROWS | byte | Variable utilizada para moverse en la matriz de botones. |  |
-| COLS | byte | Variable utilizada para moverse en la matriz de botones. |  |
+| eepromAddress | int | Direccion de memoria EEPROM para almacenar los datos de los sensores. | 0|
+| pinButtonCO2 | int | Pin vinculado al sensor del CO2, dicho sensor envia la informacion al arduino. | A6 |
+| pinButtonFoto | int | Pin vinculado al sensor de fotoresistencia, dicho sensor envia la informacion al arduino. | A7 |
+| DHTPIN | int | Pin vinculado al sensor de humedad, dicho sensor envia la informacion al arduino. | 3 |
+| DHTPIN2 | int | Pin vinculado al sensor de temperatura, dicho sensor envia la informacion al arduino. | 4|
+| pinVentilador | int | Pin vinculado al ventilador. | 10|
+| trigger | int | Utilizado para el sensor ultrasónico | 5|
+| echo | int | Utilizado para el sensor ultrasónico | 6|
 
 
 TABLA NO.2: Nombre y tipo de metodos
@@ -154,3 +164,41 @@ TABLA NO.2: Nombre y tipo de metodos
 | nivelLuz | String | Este metodo recibe un parametro de tipo int, el cual permite determinar si la luz es Alta, media o baja. |
 | saveDataToEEPROM | void | Ingresa informacion en la memoria EEPROM.  |
 | displaySavedData | void | Lee los valores almacenados en la memoria EEPROM. |
+| sendSensorDataToESP32 | void | Envia los datos de los sensores al ESP32. |
+| accionesIndividuales | void | Envia los datos de una lectura específica al ESP32. |
+| processSpecialMessages | void | Publica los datos en el topic |
+| setup_wifi | void | Realiza la conexión WiFi|
+| reconnect | void | Realiza la subscripción a los diferentes topics|
+| callback | void | Lee los mensajes recibidos de los diferentes topics y  realiza acciones|
+
+
+## Configuración WiFi  
+
+La configuración WiFi se llevò a cabo por medio de la librería WiFi.h, haciendo uso del struct WiFiClient. 
+
+- Parámetros de configuración
+
+| Parámetro | Descripción | 
+| -- | --| 
+| SSID | Nombre de la red inalámbrica | 
+| PASSWORD | Password asignado | 
+| WiFi.status() | Estado de la conexión | 
+| WiFi.localIP() | Dirección IP asignada | 
+
+Para inicializar la conexión utilizamos el siguiente mètodo 
+
+```
+  WiFi.begin(ssid, password);
+```
+
+## Dashboard
+
+<p>El dashboard utilizado para visualizar la información recolectada por los sensores, así como para accionar el ventilador, puede ser accedido en el siguiente enlace o <a  href="http://35.171.4.152/dist/#/dashboard"> pulse aquí  </a> para verlo</p>
+
+<img src="https://cdn-icons-png.freepik.com/512/7664/7664156.png" alt="drawing" width="75">
+<a  href="http://35.171.4.152/dist/#/dashboard">http://35.171.4.152/dist/#/dashboard </a>
+
+
+<img src="./img/dashboard2.png" alt="drawing" width="1000">
+
+<img src="./img/dashboard1.png" alt="drawing" width="1000">
