@@ -1,27 +1,27 @@
-><img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Usac_logo.png" alt="drawing" width="75">
+> <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Usac_logo.png" alt="drawing" width="75">
 >
->Universidad San Carlos de Guatemala
+> Universidad San Carlos de Guatemala
 >
->Facultad de Ingeniería 
+> Facultad de Ingeniería
 >
->Escuela de Ciencias y Sistemas 
+> Escuela de Ciencias y Sistemas
 >
->Primer Semestre, 2024
+> Primer Semestre, 2024
 >
->Laboratorio de Arquitectura de Computadores y Ensambladores 2
+> Laboratorio de Arquitectura de Computadores y Ensambladores 2
 
-### Grupo No. 2 
+### Grupo No. 2
+
 # Fase 2
 
 Integrantes:
 
-| Nombre                               | Carnet    | 
-| ------------------------------------ | --------- | 
-| <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH6Uyi30Ty2WkMb0ZjuFLoXmkRwrrMObm-X2zztWtGbOgyA-i7mFzuiSKltN14HLAJDVM&usqp=CAU" alt="drawing" width="20"> &nbsp;Uzzi Libni Aarón Pineda Solórzano          | 201403541 | 
-| <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH6Uyi30Ty2WkMb0ZjuFLoXmkRwrrMObm-X2zztWtGbOgyA-i7mFzuiSKltN14HLAJDVM&usqp=CAU" alt="drawing" width="20"> &nbsp; Juan Orlando Cabrera          | 200112856 |
-| <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH6Uyi30Ty2WkMb0ZjuFLoXmkRwrrMObm-X2zztWtGbOgyA-i7mFzuiSKltN14HLAJDVM&usqp=CAU" alt="drawing" width="20"> &nbsp; José Fernando Recinos Acuté           | 201114236 | 
-|  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvke8Pr8T6xz52yM8v0ieg0oQy9L9SwfkO4hy4IKoRpxyQBKSGUWto7sWmzj9YYgm1VzU&usqp=CAU" alt="drawing" width="20"> &nbsp; Melyza Alejandra Rodríguez Contreras | 201314821 | 
-
+| Nombre                                                                                                                                                                                                                | Carnet    |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH6Uyi30Ty2WkMb0ZjuFLoXmkRwrrMObm-X2zztWtGbOgyA-i7mFzuiSKltN14HLAJDVM&usqp=CAU" alt="drawing" width="20"> &nbsp;Uzzi Libni Aarón Pineda Solórzano     | 201403541 |
+| <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH6Uyi30Ty2WkMb0ZjuFLoXmkRwrrMObm-X2zztWtGbOgyA-i7mFzuiSKltN14HLAJDVM&usqp=CAU" alt="drawing" width="20"> &nbsp; Juan Orlando Cabrera                 | 200112856 |
+| <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH6Uyi30Ty2WkMb0ZjuFLoXmkRwrrMObm-X2zztWtGbOgyA-i7mFzuiSKltN14HLAJDVM&usqp=CAU" alt="drawing" width="20"> &nbsp; José Fernando Recinos Acuté          | 201114236 |
+| <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvke8Pr8T6xz52yM8v0ieg0oQy9L9SwfkO4hy4IKoRpxyQBKSGUWto7sWmzj9YYgm1VzU&usqp=CAU" alt="drawing" width="20"> &nbsp; Melyza Alejandra Rodríguez Contreras | 201314821 |
 
 ## CONTROL DEL AMBIENTE, EN DORMITORIOS INTELIGENTES IMPLEMENTANDO ANALISIS METEOROLÓGICO IoT
 
@@ -36,7 +36,7 @@ Este sistema de estación meteorológica IoT recopila los datos de estos sensore
 
 ## FUNCIONES
 
-    - MEDICIÓN DE TEMPERATURA        
+    - MEDICIÓN DE TEMPERATURA
     - CANTIDAD DE LUZ AMBIENTAL
     - MEDICIÓN DE CALIDAD DE AIRE
     - MEDICIÓN DE PROXIMIDAD
@@ -44,9 +44,11 @@ Este sistema de estación meteorológica IoT recopila los datos de estos sensore
     - DASHBOARD DINAMICO CON INFORMACIÓN EN TIEMPO REAL
 
 ## OBJETIVO DEL DISPOSITIVO
-El propósito del sistema es gestionar un ambiente inteligente en una habitación, con la capacidad de asegurar condiciones saludables para el ocupante y controlar los gastos energéticos analizando la información obtenida. Así mismo, monitorear de manera remota la información actual del ambiente y poder accionar un ventilador en el momento en que se desee. 
+
+El propósito del sistema es gestionar un ambiente inteligente en una habitación, con la capacidad de asegurar condiciones saludables para el ocupante y controlar los gastos energéticos analizando la información obtenida. Así mismo, monitorear de manera remota la información actual del ambiente y poder accionar un ventilador en el momento en que se desee.
 
 ## DESCRIPCIÓN DE CAPAS
+
     - Hardware
         - Uso de Microcontrolador Arduino.
         - Implementación de Sensores.
@@ -65,75 +67,76 @@ El propósito del sistema es gestionar un ambiente inteligente en una habitació
                 - Módulo WiFi ESP32
             - Actuadores
                 - Ventilador 5V
-            
+
     - Software
         - Arduino IDE
         - NodeJS
+        - MQTT
+        - Grafana
 
-        
-    - Cloud Platform 
+
+    - Cloud Platform
         - Google Coud Platform
 
 > <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1200px-Amazon_Web_Services_Logo.svg.png" alt="drawing" width="200">
 >
-> ***AWS Amazon Web Services*** Es una plataforma de servicios en la nube ofrecida por Amazon.com. AWS ofrece una amplia gama de servicios de computación en la nube, incluyendo almacenamiento, bases de datos, análisis, inteligencia artificial, aprendizaje automático, Internet de las cosas (IoT), seguridad y mucho más. Estos servicios son ofrecidos en forma de servicios web, permitiendo a empresas y desarrolladores acceder y utilizar infraestructura informática sin necesidad de construir o mantener sus propios centros de datos físicos. AWS es una de las principales plataformas de servicios en la nube y es utilizada por empresas de todo el mundo para ejecutar sus aplicaciones y servicios en línea.
+> **_AWS Amazon Web Services_** Es una plataforma de servicios en la nube ofrecida por Amazon.com. AWS ofrece una amplia gama de servicios de computación en la nube, incluyendo almacenamiento, bases de datos, análisis, inteligencia artificial, aprendizaje automático, Internet de las cosas (IoT), seguridad y mucho más. Estos servicios son ofrecidos en forma de servicios web, permitiendo a empresas y desarrolladores acceder y utilizar infraestructura informática sin necesidad de construir o mantener sus propios centros de datos físicos. AWS es una de las principales plataformas de servicios en la nube y es utilizada por empresas de todo el mundo para ejecutar sus aplicaciones y servicios en línea.
 
 ## FLUJO DEL SISTEMA
 
-- ### Recolección de datos:
-   Los sensores descritos realizarán lecturas del ambiente, para trasladar estos datos al microcontrolador Arduino.
+- ### RECOLECCION DE DATOS:
 
-- ### Conexión a la Red WiFi:
+  Los sensores descritos realizarán lecturas del ambiente, para trasladar estos datos al microcontrolador Arduino.
+
+- ### CONEXION A LA RED WiFi:
 
 Programar el Arduino para que se conecte a la red WiFi utilizando el módulo correspondiente y proporcionando las credenciales de la red (SSID y contraseña).
 Conexión al Broker MQTT:
 
 Configurar los parámetros de conexión al servidor MQTT (también conocido como broker). Esto incluye la dirección IP del broker, el puerto y cualquier credencial necesaria para la autenticación.
 
-- ### Publicación de Datos:
+- ### PUBLICACION DE DATOS:
 
-Para el manejo de los datos recolectados por los sensores, se utilizaron las siguientes variables: 
+Para el manejo de los datos recolectados por los sensores, se utilizaron las siguientes variables:
 
-|Nombre de la variable|Topic |  Mensaje|
-|--|--|--|
-|mqtt_topic|allSensors|Todos los sensores|
-|mqtt_topic_temp|temperatura|Lectura del sensor de temperatura|
-|mqtt_topic_co2|co2|Lectura del sensor de calidad del aire|
-|mqtt_topic_humidity|humedad|Lectura del sensor de humedad|
-|mqtt_topic_distance|distancia|Lectura del sensor ultrasónico|
-|mqtt_topic_lumus|luminosidad|Lectura del sensor ultrasónico|
-|mqtt_topic_guardar|guardar|Guardado en memoria|
-|mqtt_topic_leer|leer|Lectura de memoria|
-|mqtt_topic_ventiladorOn|ventiladorON|Encendido del ventilador|
-|mqtt_topic_ventiladorOff|ventiladorOFF|Apagado del ventilador|
+| Nombre de la variable    | Topic         | Mensaje                                |
+| ------------------------ | ------------- | -------------------------------------- |
+| mqtt_topic               | allSensors    | Todos los sensores                     |
+| mqtt_topic_temp          | temperatura   | Lectura del sensor de temperatura      |
+| mqtt_topic_co2           | co2           | Lectura del sensor de calidad del aire |
+| mqtt_topic_humidity      | humedad       | Lectura del sensor de humedad          |
+| mqtt_topic_distance      | distancia     | Lectura del sensor ultrasónico         |
+| mqtt_topic_lumus         | luminosidad   | Lectura del sensor ultrasónico         |
+| mqtt_topic_guardar       | guardar       | Guardado en memoria                    |
+| mqtt_topic_leer          | leer          | Lectura de memoria                     |
+| mqtt_topic_ventiladorOn  | ventiladorON  | Encendido del ventilador               |
+| mqtt_topic_ventiladorOff | ventiladorOFF | Apagado del ventilador                 |
 
-- ### Recepción de Datos:
+- ### RECEPCION DE DATOS:
 
-En el extremo receptor (aplicacion web para el caso de la lectura de sensores), suscribirse al mismo topic MQTT al que el Arduino está publicando los datos para mostrarlos
+En el extremo receptor (aplicacion web para el caso de la lectura de sensores), suscribirse al mismo topic MQTT al que el Arduino está publicando los datos para mostrarlos luego Grafana se conecta con MQTT para la obtencion de datos y poder realizar las graficas.
 
-<img src="./img/imgFase2.png" alt="drawing" width="1000">
+<img src="./img/diagrama_F3.png" alt="drawing" width="1000">
 
 FIGURA NO.1
 
 ## MAQUETA
-![Maqueta](./img/maqueta.jpg)
 
-FIGURA NO.2
+![Maqueta](./img/maqueta-f3.jpg "FIGURA No.2")
 
 En la siguiente imagen podemos encontrar los sensores utilizados en este proyecto siendo estos:
- - Sensor de temperatura DHT
- - Sensor de movimiento Ultrasonico HC-SR04
- - Fotocelda
- - Sensor de CO2 MQ135
- - Módulo WiFi ESP32
- - Ventilador de 5V
 
-Tambien podemos apreciar un Arduino Uno como microcontrolador.
+- Sensor de temperatura DHT
+- Sensor de movimiento Ultrasonico HC-SR04
+- Fotocelda
+- Sensor de CO2 MQ135
+- Módulo WiFi ESP32
+- Ventilador de 5V
 
 ## DIAGRAMA DE FLUJO
 
-
 ## LIBRERIAS UTILIZADAS EN EL PROYECTO
+
 1. Wire
 2. DHT
 3. EEPROM
@@ -141,63 +144,63 @@ Tambien podemos apreciar un Arduino Uno como microcontrolador.
 5. PubSubClient.h
 
 ## VARIABLES Y METODOS UTILIZADOS
-TABLA NO.1: Nombre y Tipo de Variables
-| NOMBRE VARIABLE | TIPO | DESCRIPCIÓN | PIN ARDUINO |
-| ------ | ------ | ------ | ------ |
-| eepromAddress | int | Direccion de memoria EEPROM para almacenar los datos de los sensores. | 0|
-| pinButtonCO2 | int | Pin vinculado al sensor del CO2, dicho sensor envia la informacion al arduino. | A6 |
-| pinButtonFoto | int | Pin vinculado al sensor de fotoresistencia, dicho sensor envia la informacion al arduino. | A7 |
-| DHTPIN | int | Pin vinculado al sensor de humedad, dicho sensor envia la informacion al arduino. | 3 |
-| DHTPIN2 | int | Pin vinculado al sensor de temperatura, dicho sensor envia la informacion al arduino. | 4|
-| pinVentilador | int | Pin vinculado al ventilador. | 10|
-| trigger | int | Utilizado para el sensor ultrasónico | 5|
-| echo | int | Utilizado para el sensor ultrasónico | 6|
 
+**TABLA NO.1**: Nombre y Tipo de Variables
 
-TABLA NO.2: Nombre y tipo de metodos
-| NOMBRE | TIPO | DESCRIPCION |
-| ------ | ------ | ------ |
-| readSensors | void | Este metodo lee la informacion enviada de los sensores y los guarda en las variables declaradas en la Tabla No.1  |
-| readUltrasonicSensor | int | Metodo para calcular la distancia de la habitacion. |
-| processKeypad | void | Metodo utilizado para procesar la informacion del teclado, este metodo recibe como parametro un char. Dicho parametro permite mostrar los datos guardados en las variables descritas en la Tabla No.1 |
-| printAllSensor | void | Muestra toda la informacion guardada de los sensores. |
-| nivelLuz | String | Este metodo recibe un parametro de tipo int, el cual permite determinar si la luz es Alta, media o baja. |
-| saveDataToEEPROM | void | Ingresa informacion en la memoria EEPROM.  |
-| displaySavedData | void | Lee los valores almacenados en la memoria EEPROM. |
-| sendSensorDataToESP32 | void | Envia los datos de los sensores al ESP32. |
-| accionesIndividuales | void | Envia los datos de una lectura específica al ESP32. |
-| processSpecialMessages | void | Publica los datos en el topic |
-| setup_wifi | void | Realiza la conexión WiFi|
-| reconnect | void | Realiza la subscripción a los diferentes topics|
-| callback | void | Lee los mensajes recibidos de los diferentes topics y  realiza acciones|
+| NOMBRE VARIABLE | TIPO | DESCRIPCIÓN                                                                               | PIN ARDUINO |
+| --------------- | ---- | ----------------------------------------------------------------------------------------- | ----------- |
+| eepromAddress   | int  | Direccion de memoria EEPROM para almacenar los datos de los sensores.                     | 0           |
+| pinButtonCO2    | int  | Pin vinculado al sensor del CO2, dicho sensor envia la informacion al arduino.            | A6          |
+| pinButtonFoto   | int  | Pin vinculado al sensor de fotoresistencia, dicho sensor envia la informacion al arduino. | A7          |
+| DHTPIN          | int  | Pin vinculado al sensor de humedad, dicho sensor envia la informacion al arduino.         | 3           |
+| DHTPIN2         | int  | Pin vinculado al sensor de temperatura, dicho sensor envia la informacion al arduino.     | 4           |
+| pinVentilador   | int  | Pin vinculado al ventilador.                                                              | 10          |
+| trigger         | int  | Utilizado para el sensor ultrasónico                                                      | 5           |
+| echo            | int  | Utilizado para el sensor ultrasónico                                                      | 6           |
 
+**TABLA NO.2**: Nombre y tipo de metodos
 
-## Configuración WiFi  
+| NOMBRE                 | TIPO   | DESCRIPCION                                                                                                                                                                                           |
+| ---------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| readSensors            | void   | Este metodo lee la informacion enviada de los sensores y los guarda en las variables declaradas en la Tabla No.1                                                                                      |
+| readUltrasonicSensor   | int    | Metodo para calcular la distancia de la habitacion.                                                                                                                                                   |
+| processKeypad          | void   | Metodo utilizado para procesar la informacion del teclado, este metodo recibe como parametro un char. Dicho parametro permite mostrar los datos guardados en las variables descritas en la Tabla No.1 |
+| printAllSensor         | void   | Muestra toda la informacion guardada de los sensores.                                                                                                                                                 |
+| nivelLuz               | String | Este metodo recibe un parametro de tipo int, el cual permite determinar si la luz es Alta, media o baja.                                                                                              |
+| saveDataToEEPROM       | void   | Ingresa informacion en la memoria EEPROM.                                                                                                                                                             |
+| displaySavedData       | void   | Lee los valores almacenados en la memoria EEPROM.                                                                                                                                                     |
+| sendSensorDataToESP32  | void   | Envia los datos de los sensores al ESP32.                                                                                                                                                             |
+| accionesIndividuales   | void   | Envia los datos de una lectura específica al ESP32.                                                                                                                                                   |
+| processSpecialMessages | void   | Publica los datos en el topic                                                                                                                                                                         |
+| setup_wifi             | void   | Realiza la conexión WiFi                                                                                                                                                                              |
+| reconnect              | void   | Realiza la subscripción a los diferentes topics                                                                                                                                                       |
+| callback               | void   | Lee los mensajes recibidos de los diferentes topics y realiza acciones                                                                                                                                |
 
-La configuración WiFi se llevò a cabo por medio de la librería WiFi.h, haciendo uso del struct WiFiClient. 
+## COFIGURACION WiFi
 
-- Parámetros de configuración
+La configuración WiFi se llevò a cabo por medio de la librería WiFi.h, haciendo uso del struct WiFiClient.
 
-| Parámetro | Descripción | 
-| -- | --| 
-| SSID | Nombre de la red inalámbrica | 
-| PASSWORD | Password asignado | 
-| WiFi.status() | Estado de la conexión | 
-| WiFi.localIP() | Dirección IP asignada | 
+**TABLA No.3**: Parámetros de configuración
 
-Para inicializar la conexión utilizamos el siguiente mètodo 
+| Parámetro      | Descripción                  |
+| -------------- | ---------------------------- |
+| SSID           | Nombre de la red inalámbrica |
+| PASSWORD       | Password asignado            |
+| WiFi.status()  | Estado de la conexión        |
+| WiFi.localIP() | Dirección IP asignada        |
+
+Para inicializar la conexión utilizamos el siguiente mètodo
 
 ```
   WiFi.begin(ssid, password);
 ```
 
-## Dashboard
+## DASHBOARD
 
 <p>El dashboard utilizado para visualizar la información recolectada por los sensores, así como para accionar el ventilador, puede ser accedido en el siguiente enlace o <a  href="http://35.171.4.152/dist/#/dashboard"> pulse aquí  </a> para verlo</p>
 
 <img src="https://cdn-icons-png.freepik.com/512/7664/7664156.png" alt="drawing" width="75">
 <a  href="http://35.171.4.152/dist/#/dashboard">http://35.171.4.152/dist/#/dashboard </a>
-
 
 <img src="./img/dashboard2.png" alt="drawing" width="1000">
 
