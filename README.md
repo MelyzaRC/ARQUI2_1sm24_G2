@@ -140,7 +140,7 @@ Para el manejo de los datos recolectados por los sensores, se utilizaron las sig
 
 En el extremo receptor (aplicacion web para el caso de la lectura de sensores), suscribirse al mismo topic MQTT al que el Arduino está publicando los datos para mostrarlos luego Grafana se conecta con MQTT para la obtencion de datos y poder realizar las graficas.
 
-![Diagrama](./img/diagrama_F3.png "FIGURA NO.1")
+![Diagrama](./img/diagrama_F3.PNG "FIGURA NO.1")
 
 ## MAQUETA
 
@@ -168,7 +168,6 @@ En la siguiente imagen podemos encontrar los sensores utilizados en este proyect
 4. Wifi.h
 5. PubSubClient.h
 6. Servo.h
-7.
 
 ## VARIABLES Y METODOS UTILIZADOS
 
@@ -186,6 +185,7 @@ En la siguiente imagen podemos encontrar los sensores utilizados en este proyect
 | echo            | int  | Utilizado para el sensor ultrasónico                                                      | 6           |
 
 <br>
+
 **TABLA NO.2**: Nombre y tipo de metodos
 
 | NOMBRE                 | TIPO   | DESCRIPCION                                                                                                                                                                                           |
@@ -213,6 +213,8 @@ En la siguiente imagen podemos encontrar los sensores utilizados en este proyect
 ## COFIGURACION WiFi
 
 La configuración WiFi se llevò a cabo por medio de la librería WiFi.h, haciendo uso del struct WiFiClient.
+
+<br>
 
 **TABLA No.3**: Parámetros de configuración
 
