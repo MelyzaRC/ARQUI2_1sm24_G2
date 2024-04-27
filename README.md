@@ -93,6 +93,15 @@ El propósito del sistema es gestionar un ambiente inteligente en una habitació
 >
 > **_Grafana_** Es una solución de código abierto que sirve para ejecutar análisis de datos, extraer métricas que dan sentido ante enormes cantidades de datos y monitorear aplicaciones y recursos de hardware con la ayuda de atractivos paneles de control personalizables. Grafana es una herramienta de interfaz de usuario centralizada en la obtención de datos a partir de consultas, como también del almacenamiento de estos y su visualización. Es completament de código abierto, y está respaldada por una gran comunidad entusiasta y dedicada.
 
+## CONSIDERACIONES
+
+Los datos obtenidos por medio de los sensores se les asigno las siguientes unidades de medida:
+
+1. Temperatura en la habitacion (°C)
+2. Cantidad de luz en la habitación (Lumen)
+3. Calidad del aire (Co2 ppm)
+4. Humedad en el ambiente (%)
+
 ## FLUJO DEL SISTEMA
 
 - ### RECOLECCION DE DATOS:
@@ -177,6 +186,7 @@ En la siguiente imagen podemos encontrar los sensores utilizados en este proyect
 | trigger         | int  | Utilizado para el sensor ultrasónico                                                      | 5           |
 | echo            | int  | Utilizado para el sensor ultrasónico                                                      | 6           |
 
+<br>
 **TABLA NO.2**: Nombre y tipo de metodos
 
 | NOMBRE                 | TIPO   | DESCRIPCION                                                                                                                                                                                           |
