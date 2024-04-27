@@ -8,6 +8,7 @@ const controller = {}
 // INSERT
 controller.insertarTemperatura = async (req, res) => {
     const { temperatura } = req.body
+    console.log('Valor recibido: ' + temperatura)
     req.getConnection(async (err, conn) => {
         if (err) throw (err)
         const insertarSql = "INSERT INTO temperatura(temperatura,fecha) values (?, now())"
@@ -42,6 +43,7 @@ controller.obtenerTemperatura = async (req, res) => {
 // INSERT
 controller.insertarDistancia = async (req, res) => {
     const { distancia } = req.body
+    console.log('Valor recibido: ' + distancia)
     req.getConnection(async (err, conn) => {
         if (err) throw (err)
         const insertarSql = "INSERT INTO distancia(distancia,fecha) values (?, now())"
@@ -76,6 +78,7 @@ controller.obtenerDistancia = async (req, res) => {
 // INSERT
 controller.insertarIluminacion = async (req, res) => {
     const { iluminacion } = req.body
+    console.log('Valor recibido: ' + iluminacion)
     req.getConnection(async (err, conn) => {
         if (err) throw (err)
         const insertarSql = "INSERT INTO iluminacion(iluminacion,fecha) values (?, now())"
@@ -110,6 +113,7 @@ controller.obtenerIluminacion = async (req, res) => {
 // INSERT
 controller.insertarAire = async (req, res) => {
     const { aire } = req.body
+    console.log('Valor recibido: ' + aire)
     req.getConnection(async (err, conn) => {
         if (err) throw (err)
         const insertarSql = "INSERT INTO aire(aire,fecha) values (?, now())"
@@ -144,6 +148,7 @@ controller.obtenerAire = async (req, res) => {
 // INSERT
 controller.insertarHumedad = async (req, res) => {
     const { humedad } = req.body
+    console.log('Valor recibido: ' + humedad)
     req.getConnection(async (err, conn) => {
         if (err) throw (err)
         const insertarSql = "INSERT INTO humedad(humedad,fecha) values (?, now())"
