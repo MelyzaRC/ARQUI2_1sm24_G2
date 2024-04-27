@@ -140,7 +140,7 @@ Para el manejo de los datos recolectados por los sensores, se utilizaron las sig
 
 En el extremo receptor (aplicacion web para el caso de la lectura de sensores), suscribirse al mismo topic MQTT al que el Arduino está publicando los datos para mostrarlos luego Grafana se conecta con MQTT para la obtencion de datos y poder realizar las graficas.
 
-![Diagrama](./img/diagrama_F3.png "FIGURA NO.1")
+![Diagrama](./img/diagrama_F3.PNG "FIGURA NO.1")
 
 ## MAQUETA
 
