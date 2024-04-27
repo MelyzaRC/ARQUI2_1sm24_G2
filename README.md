@@ -74,13 +74,19 @@ El propósito del sistema es gestionar un ambiente inteligente en una habitació
         - MQTT
         - Grafana
 
-
     - Cloud Platform
         - Google Coud Platform
+
+    - Base de Datos
+        - Grafana
 
 > <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1200px-Amazon_Web_Services_Logo.svg.png" alt="drawing" width="200">
 >
 > **_AWS Amazon Web Services_** Es una plataforma de servicios en la nube ofrecida por Amazon.com. AWS ofrece una amplia gama de servicios de computación en la nube, incluyendo almacenamiento, bases de datos, análisis, inteligencia artificial, aprendizaje automático, Internet de las cosas (IoT), seguridad y mucho más. Estos servicios son ofrecidos en forma de servicios web, permitiendo a empresas y desarrolladores acceder y utilizar infraestructura informática sin necesidad de construir o mantener sus propios centros de datos físicos. AWS es una de las principales plataformas de servicios en la nube y es utilizada por empresas de todo el mundo para ejecutar sus aplicaciones y servicios en línea.
+
+> <img src="./img/grafana_logo.png" alt="drawing" width="200">
+>
+> **_Grafana_** Es una solución de código abierto que sirve para ejecutar análisis de datos, extraer métricas que dan sentido ante enormes cantidades de datos y monitorear aplicaciones y recursos de hardware con la ayuda de atractivos paneles de control personalizables. Grafana es una herramienta de interfaz de usuario centralizada en la obtención de datos a partir de consultas, como también del almacenamiento de estos y su visualización. Es completament de código abierto, y está respaldada por una gran comunidad entusiasta y dedicada.
 
 ## FLUJO DEL SISTEMA
 
@@ -134,6 +140,8 @@ En la siguiente imagen podemos encontrar los sensores utilizados en este proyect
 - Ventilador de 5V
 
 ## DIAGRAMA DE FLUJO
+
+![Flujo](./img/flujo.jpg "Figura No.3")
 
 ## LIBRERIAS UTILIZADAS EN EL PROYECTO
 
@@ -202,6 +210,31 @@ Para inicializar la conexión utilizamos el siguiente mètodo
 <img src="https://cdn-icons-png.freepik.com/512/7664/7664156.png" alt="drawing" width="75">
 <a  href="http://35.171.4.152/dist/#/dashboard">http://35.171.4.152/dist/#/dashboard </a>
 
-<img src="./img/dashboard2.png" alt="drawing" width="1000">
+<img src="./img/pagina_web.jpg" alt="drawing" width="1000">
 
 <img src="./img/dashboard1.png" alt="drawing" width="1000">
+
+<br>
+
+<p> A continuacion se muestra el dashboard utilizado en grafana, tambien puede visualizar la pagina dando click en el siguiente enlace <a href="https://mlzdrg792.grafana.net/public-dashboards/77644f50bfe841b0a53ef44b6cee81ea?orgId=1&refresh=5s"> pulse aquí </a>.
+</p>
+
+![Grafana](./img/dashboard_grafana1.jpg "FIGURA No.4")
+
+![Grafana1](./img/dashboard_grafana2.jpg "FIGURA No.5")
+
+![Grafana2](./img/dashboard_grafana3.jpg "FIGURA No.6")
+
+## CONFIGURACION DE ENDPOINTS (COMUNICACION GRAFANA)
+
+URL para iniciar la comunicacion 3.147.69.159:3010
+
+**TABLA No.4**: Nombre y como enviar data en los endpoints
+
+| Metodo | Nombre Endpoint | Ejemplo              |
+| ------ | --------------- | -------------------- |
+| POST   | /addTemperatura | {"temperatura":10.5} |
+| POST   | /addHumedad     | {"humedad":15.5}     |
+| POST   | /addIluminacion | {"iluminacion":7.5}  |
+| POST   | /addDistancia   | {"distancia":5.4}    |
+| POST   | /addAire        | {"aire":12.5}        |
