@@ -156,6 +156,7 @@ En la siguiente imagen podemos encontrar los sensores utilizados en este proyect
 - Sensor de CO2 MQ135
 - Módulo WiFi ESP32
 - Ventilador de 5V
+- Servo Motor
 
 ## DIAGRAMA DE FLUJO
 
