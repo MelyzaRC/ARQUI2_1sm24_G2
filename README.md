@@ -12,7 +12,7 @@
 
 ### Grupo No. 2
 
-# Fase 2
+# Fase 3
 
 Integrantes:
 
@@ -42,6 +42,11 @@ Este sistema de estación meteorológica IoT recopila los datos de estos sensore
     - MEDICIÓN DE PROXIMIDAD
     - ACCIONAMIENTO REMOTO DE VENTILADOR
     - DASHBOARD DINAMICO CON INFORMACIÓN EN TIEMPO REAL
+    - INTERACCION CON LA ILUMINACION DE LA HABITACION
+    - ANALISIS DE LIMPIEZA, EN EL AIRE EN LA HABITACION
+    - ANALISIS DE TEMPERATURA DENTRO DE LA HABITACION
+    - SISTEMA DE SEGURIDAD (HABILITAR ENTRADA/SALIDA DE LA HABITACION)
+    - APLICACION WEB PARA VISUALIZAR GRAFICOS HISTORICOS SOBRE LA DATA DE LOS SENSORES
 
 ## OBJETIVO DEL DISPOSITIVO
 
@@ -101,6 +106,10 @@ Conexión al Broker MQTT:
 
 Configurar los parámetros de conexión al servidor MQTT (también conocido como broker). Esto incluye la dirección IP del broker, el puerto y cualquier credencial necesaria para la autenticación.
 
+- ### CONECTIVIDAD:
+
+El dispositivo estará constituido por un Arduino que recopila los daots de los sensores descritos y luego envía esta información a través de una cola de mensajes utilizando un servicio Publisher, Subscriber (MQTT). Estos datos se almacenan de forma persistente en una base de datos (En la nube).
+
 - ### PUBLICACION DE DATOS:
 
 Para el manejo de los datos recolectados por los sensores, se utilizaron las siguientes variables:
@@ -150,6 +159,8 @@ En la siguiente imagen podemos encontrar los sensores utilizados en este proyect
 3. EEPROM
 4. Wifi.h
 5. PubSubClient.h
+6. Servo.h
+7.
 
 ## VARIABLES Y METODOS UTILIZADOS
 
@@ -183,6 +194,12 @@ En la siguiente imagen podemos encontrar los sensores utilizados en este proyect
 | setup_wifi             | void   | Realiza la conexión WiFi                                                                                                                                                                              |
 | reconnect              | void   | Realiza la subscripción a los diferentes topics                                                                                                                                                       |
 | callback               | void   | Lee los mensajes recibidos de los diferentes topics y realiza acciones                                                                                                                                |
+| apiAllSensores         | void   | Obtiene los valores de los sensores los convierte a enteros y los almacena en un array, luego los envia por endpoints                                                                                 |
+| api                    | void   | Realiza la conexion con la api                                                                                                                                                                        |
+| abrirPuerta            | void   | Analiza los movimientos del servo para abrir la puerta                                                                                                                                                |
+| cerrarPuerta           | void   | Analiza los movimientos del servo para cerrar la puerta                                                                                                                                               |
+| motorControl           | void   | Realiza los movimientos del motor                                                                                                                                                                     |
+| motorApagar            | void   | Apaga los movimientos del motor                                                                                                                                                                       |
 
 ## COFIGURACION WiFi
 
@@ -226,8 +243,6 @@ Para inicializar la conexión utilizamos el siguiente mètodo
 ![Grafana2](./img/dashboard_grafana3.jpg "FIGURA No.6")
 
 ## CONFIGURACION DE ENDPOINTS (COMUNICACION GRAFANA)
-
-URL para iniciar la comunicacion 3.147.69.159:3010
 
 **TABLA No.4**: Nombre y como enviar data en los endpoints
 
